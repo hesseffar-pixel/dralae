@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. El Bouaychi Alae — Cabinet d'Ophtalmologie, Salé</title>
+<meta name="description" content="Cabinet d'Ophtalmologie Dr. El Bouaychi Alae, Ophtalmologue et chirurgien des yeux à Salé. Consultations, chirurgie de la cataracte, LASIK, et plus.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --teal:#1a9a7a;
+  --teal-dark:#0f6e56;
+  --teal-light:#e1f5ee;
+  --teal-mid:#5dcaa5;
+  --wood:#c4763a;
+  --cream:#faf9f7;
+  --white:#ffffff;
+  --dark:#1a1a1a;
+  --gray:#666;
+  --border:#e8e4df;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,249,247,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 5%}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-eye{width:36px;height:36px}
+.nav-logo-text{display:flex;flex-direction:column}
+.nav-logo-text span:first-child{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--teal-dark);line-height:1.1}
+.nav-logo-text span:last-child{font-size:10px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{text-decoration:none;font-size:13px;color:var(--gray);letter-spacing:0.5px;transition:color 0.2s}
+.nav-links a:hover{color:var(--teal)}
+.nav-cta{background:var(--teal);color:white!important;padding:10px 22px;border-radius:50px;font-size:13px!important;transition:background 0.2s!important}
+.nav-cta:hover{background:var(--teal-dark)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--dark);border-radius:2px;transition:all 0.3s}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);padding:24px 5%;z-index:99;flex-direction:column;gap:20px}
+.mobile-menu a{text-decoration:none;font-size:15px;color:var(--dark);padding:8px 0;border-bottom:1px solid var(--border)}
+.mobile-menu.open{display:flex}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding:0 5%;padding-top:72px;max-width:1200px;margin:0 auto;align-items:center;gap:60px}
+.hero-content{padding:60px 0}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--teal-light);color:var(--teal-dark);font-size:12px;padding:6px 16px;border-radius:50px;letter-spacing:1px;text-transform:uppercase;margin-bottom:28px}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal)}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,5vw,68px);font-weight:500;line-height:1.05;color:var(--dark);margin-bottom:12px}
+h1 span{color:var(--teal)}
+.hero-sub{font-size:15px;color:var(--gray);line-height:1.7;max-width:460px;margin-bottom:36px}
+.hero-quote{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--teal-dark);border-left:3px solid var(--teal-mid);padding-left:16px;margin-bottom:36px;line-height:1.5}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:var(--teal);color:white;text-decoration:none;padding:14px 32px;border-radius:50px;font-size:14px;font-weight:500;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--teal-dark);transform:translateY(-1px)}
+.btn-secondary{border:1.5px solid var(--teal);color:var(--teal);text-decoration:none;padding:14px 32px;border-radius:50px;font-size:14px;font-weight:500;transition:all 0.2s}
+.btn-secondary:hover{background:var(--teal-light)}
+.hero-image-wrap{position:relative;display:flex;justify-content:center;align-items:center}
+.hero-img-bg{position:absolute;width:380px;height:380px;border-radius:50%;background:var(--teal-light);top:50%;left:50%;transform:translate(-50%,-50%)}
+.hero-img{position:relative;width:340px;height:420px;object-fit:cover;object-position:top;border-radius:20px 20px 100px 100px;z-index:2;box-shadow:0 30px 60px rgba(15,110,86,0.15)}
+.hero-card{position:absolute;bottom:40px;right:-20px;background:white;border-radius:16px;padding:16px 20px;box-shadow:0 10px 30px rgba(0,0,0,0.08);z-index:3;min-width:180px}
+.hero-card-label{font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.hero-card-value{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--teal-dark)}
+.hero-card-sub{font-size:12px;color:var(--gray);margin-top:2px}
+.hero-card2{position:absolute;top:60px;left:-30px;background:var(--teal-dark);border-radius:16px;padding:14px 18px;z-index:3}
+.hero-card2 span{display:block;font-size:11px;color:rgba(255,255,255,0.7);margin-bottom:4px}
+.hero-card2 strong{display:block;font-size:13px;color:white;line-height:1.3}
+
+/* STATS */
+.stats-bar{background:var(--teal-dark);padding:40px 5%}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.stat-item{}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:600;color:white;line-height:1}
+.stat-label{font-size:12px;color:rgba(255,255,255,0.65);text-transform:uppercase;letter-spacing:1px;margin-top:6px}
+
+/* ABOUT */
+.about{padding:100px 5%;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-images{display:grid;grid-template-columns:1fr 1fr;gap:16px;position:relative}
+.about-img1{width:100%;height:300px;object-fit:cover;border-radius:16px;grid-column:1/-1}
+.about-img2{width:100%;height:200px;object-fit:cover;border-radius:12px}
+.about-img3{width:100%;height:200px;object-fit:cover;border-radius:12px}
+.section-tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:16px;display:block}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,48px);font-weight:500;line-height:1.1;color:var(--dark);margin-bottom:20px}
+.about-text{font-size:15px;color:var(--gray);line-height:1.8;margin-bottom:24px}
+.credentials{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.cred-item{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:white;border-radius:12px;border:1px solid var(--border)}
+.cred-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);margin-top:5px;flex-shrink:0}
+.cred-text{font-size:14px;color:var(--dark);line-height:1.4}
+
+/* SERVICES */
+.services{padding:100px 5%;background:white}
+.services-inner{max-width:1200px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:60px}
+.section-header p{font-size:15px;color:var(--gray);max-width:520px;margin:0 auto;line-height:1.7}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{background:var(--cream);border-radius:20px;padding:32px;border:1px solid var(--border);transition:all 0.3s;cursor:default}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(26,154,122,0.08);border-color:var(--teal-mid)}
+.service-icon{width:52px;height:52px;background:var(--teal-light);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.service-icon svg{width:26px;height:26px;stroke:var(--teal)}
+.service-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--dark);margin-bottom:10px}
+.service-card p{font-size:14px;color:var(--gray);line-height:1.6}
+.service-tag{display:inline-block;background:var(--teal-light);color:var(--teal-dark);font-size:11px;padding:4px 12px;border-radius:50px;margin-top:14px;letter-spacing:0.5px}
+
+/* VIDEO */
+.video-section{padding:100px 5%;max-width:1200px;margin:0 auto}
+.video-wrap{position:relative;border-radius:24px;overflow:hidden;background:var(--dark);cursor:pointer}
+.video-wrap video{width:100%;max-height:520px;object-fit:cover;display:block;opacity:0.85}
+.video-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,transparent 60%)}
+.play-btn{width:72px;height:72px;border-radius:50%;background:white;display:flex;align-items:center;justify-content:center;transition:transform 0.2s;margin-bottom:20px}
+.play-btn:hover{transform:scale(1.08)}
+.play-btn svg{width:28px;height:28px;fill:var(--teal-dark);margin-left:4px}
+.video-caption{color:white;font-size:14px;opacity:0.8;letter-spacing:0.5px}
+.video-wrap.playing .video-overlay{opacity:0;pointer-events:none}
+.video-wrap.playing video{opacity:1}
+
+/* GALLERY */
+.gallery{padding:0 5% 100px;max-width:1200px;margin:0 auto}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gallery-grid img{width:100%;height:240px;object-fit:cover;border-radius:16px;transition:transform 0.3s}
+.gallery-grid img:hover{transform:scale(1.02)}
+.gallery-grid img:first-child{grid-column:span 2;height:320px}
+
+/* REVIEWS */
+.reviews{padding:100px 5%;background:var(--teal-dark);overflow:hidden}
+.reviews-inner{max-width:1200px;margin:0 auto}
+.reviews-inner .section-tag{color:var(--teal-mid)}
+.reviews-inner h2{color:white}
+.carousel-track-wrap{overflow:hidden;margin-top:48px}
+.carousel-track{display:flex;gap:24px;animation:scroll 30s linear infinite}
+.carousel-track:hover{animation-play-state:paused}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.review-card{flex-shrink:0;width:320px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:28px;backdrop-filter:blur(10px)}
+.review-stars{display:flex;gap:4px;margin-bottom:16px}
+.review-stars span{color:#fbbf24;font-size:16px}
+.review-text{font-size:14px;color:rgba(255,255,255,0.85);line-height:1.7;margin-bottom:20px;font-style:italic}
+.review-author{display:flex;align-items:center;gap:12px}
+.review-avatar{width:38px;height:38px;border-radius:50%;background:var(--teal-mid);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:var(--teal-dark)}
+.review-name{font-size:13px;font-weight:500;color:white}
+.review-date{font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px}
+
+/* CONTACT */
+.contact{padding:100px 5%;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-info{}
+.contact-card{background:white;border-radius:20px;padding:32px;border:1px solid var(--border);margin-top:32px}
+.contact-item{display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid var(--border)}
+.contact-item:last-child{border-bottom:none}
+.contact-icon{width:40px;height:40px;background:var(--teal-light);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-icon svg{width:18px;height:18px;stroke:var(--teal)}
+.contact-label{font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.contact-value{font-size:14px;color:var(--dark);font-weight:500;line-height:1.5}
+.contact-value a{color:var(--teal);text-decoration:none}
+.map-embed{border-radius:20px;overflow:hidden;height:340px}
+.map-embed iframe{width:100%;height:100%;border:none}
+.call-btn{display:flex;align-items:center;justify-content:center;gap:12px;background:var(--teal);color:white;text-decoration:none;padding:18px 32px;border-radius:50px;font-size:15px;font-weight:500;margin-top:24px;transition:all 0.2s;width:100%}
+.call-btn:hover{background:var(--teal-dark);transform:translateY(-1px)}
+.call-btn svg{width:20px;height:20px;stroke:white}
+
+/* FOOTER */
+footer{background:var(--dark);padding:48px 5% 32px;color:rgba(255,255,255,0.5)}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:18px;color:white}
+.footer-copy{font-size:12px}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;text-align:center;gap:40px;padding-top:72px}
+  .hero-image-wrap{order:-1}
+  .hero-img{width:260px;height:320px}
+  .hero-img-bg{width:280px;height:280px}
+  .hero-card,.hero-card2{display:none}
+  .hero-actions{justify-content:center}
+  .hero-sub{margin:0 auto 36px}
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
+  .about{grid-template-columns:1fr;gap:40px}
+  .services-grid{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr;gap:40px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .footer-inner{flex-direction:column;text-align:center}
+  .gallery-grid{grid-template-columns:1fr}
+  .gallery-grid img:first-child{grid-column:auto;height:240px}
+}
+@media(max-width:600px){
+  .services-grid{grid-template-columns:1fr}
+  .about-images{grid-template-columns:1fr}
+  .about-img1{grid-column:auto}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <svg class="nav-logo-eye" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="19" stroke="#1a9a7a" stroke-width="1.5"/>
+        <ellipse cx="20" cy="20" rx="14" ry="9" stroke="#1a9a7a" stroke-width="1.5"/>
+        <circle cx="20" cy="20" r="5" fill="#1a9a7a"/>
+        <circle cx="22" cy="18" r="1.5" fill="white"/>
+      </svg>
+      <div class="nav-logo-text">
+        <span>Dr. El Bouaychi Alae</span>
+        <span>Ophtalmologue</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#about">À propos</a>
+      <a href="#services">Services</a>
+      <a href="#galerie">Cabinet</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact" class="nav-cta">Prendre RDV</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()">À propos</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#galerie" onclick="toggleMenu()">Cabinet</a>
+  <a href="#avis" onclick="toggleMenu()">Avis</a>
+  <a href="#contact" onclick="toggleMenu()">Prendre RDV</a>
+</div>
+
+<!-- HERO -->
+<section style="background:var(--cream)">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Cabinet d'Ophtalmologie · Salé</div>
+      <h1>La vision<br>est notre<br><span>priorité</span></h1>
+      <p class="hero-sub">Spécialiste en ophtalmologie et chirurgie des yeux, Dr. El Bouaychi Alae vous offre des soins de haute précision avec les technologies les plus avancées.</p>
+      <blockquote class="hero-quote">« Chaque œil est unique,<br>chaque intervention l'est aussi »</blockquote>
+      <div class="hero-actions">
+        <a href="tel:0538830120" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.5 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013.41 1.23h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 9a16 16 0 006.29 6.29l1.13-1.13a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Appeler maintenant
+        </a>
+        <a href="#services" class="btn-secondary">Voir les services</a>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <div class="hero-img-bg"></div>
+      <img class="hero-img" src="https://i.imgur.com/placeholder.jpg" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22340%22 height=%22420%22 viewBox=%220 0 340 420%22><rect width=%22340%22 height=%22420%22 fill=%22%231a9a7a%22 rx=%2220%22/><text x=%22170%22 y=%22210%22 fill=%22white%22 font-family=%22serif%22 font-size=%2240%22 text-anchor=%22middle%22>Dr. Alae</text></svg>'" alt="Dr. El Bouaychi Alae">
+      <div class="hero-card">
+        <div class="hero-card-label">Expérience</div>
+        <div class="hero-card-value">+10 ans</div>
+        <div class="hero-card-sub">en ophtalmologie</div>
+      </div>
+      <div class="hero-card2">
+        <span>Équipements</span>
+        <strong>Dernière<br>génération</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">+2000</div>
+      <div class="stat-label">Patients traités</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">+10</div>
+      <div class="stat-label">Années d'expérience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">8+</div>
+      <div class="stat-label">Services spécialisés</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">5★</div>
+      <div class="stat-label">Avis Google</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" style="background:var(--cream)">
+  <div class="about">
+    <div class="about-images">
+      <img class="about-img1" src="https://i.imgur.com/cabinet1.jpg" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22300%22><rect width=%22600%22 height=%22300%22 fill=%22%23e1f5ee%22 rx=%2216%22/><text x=%22300%22 y=%22155%22 fill=%22%231a9a7a%22 font-size=%2220%22 text-anchor=%22middle%22>Cabinet d%27accueil</text></svg>'" alt="Accueil du cabinet">
+      <img class="about-img2" src="https://i.imgur.com/cabinet2.jpg" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22><rect width=%22300%22 height=%22200%22 fill=%22%23e1f5ee%22 rx=%2212%22/><text x=%22150%22 y=%22105%22 fill=%22%231a9a7a%22 font-size=%2216%22 text-anchor=%22middle%22>Salle de consultation</text></svg>'" alt="Salle de consultation">
+      <img class="about-img3" src="https://i.imgur.com/cabinet3.jpg" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22><rect width=%22300%22 height=%22200%22 fill=%22%23c4763a22%22 rx=%2212%22/><text x=%22150%22 y=%22105%22 fill=%22%23c4763a%22 font-size=%2216%22 text-anchor=%22middle%22>Équipements avancés</text></svg>'" alt="Équipements">
+    </div>
+    <div>
+      <span class="section-tag">À propos du médecin</span>
+      <h2>Un spécialiste<br>à votre écoute</h2>
+      <p class="about-text">Dr. El Bouaychi Alae est ophtalmologue et chirurgien des yeux, exerçant à Salé avec une approche centrée sur la précision diagnostique et le confort du patient. Il dispose d'équipements de dernière génération permettant des tests multiples pour une certitude maximale avant chaque intervention.</p>
+      <p class="about-text">En parallèle de son cabinet privé, il collabore avec l'Ophtalmoclinic Noor, une référence en chirurgie ophtalmologique à Rabat.</p>
+      <div class="credentials">
+        <div class="cred-item">
+          <div class="cred-dot"></div>
+          <div class="cred-text">Lauréat de la Faculté de Médecine et de Pharmacie de Rabat</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-dot"></div>
+          <div class="cred-text">Ancien interne du CHU de Rabat</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-dot"></div>
+          <div class="cred-text">Ancien interne aux hôpitaux de Paris</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services">
+    <div class="services-inner">
+      <div class="section-header">
+        <span class="section-tag">Nos spécialités</span>
+        <h2>Services & Soins</h2>
+        <p>Une prise en charge complète de votre santé visuelle, de la consultation au bloc opératoire.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg>
+          </div>
+          <h3>Consultation générale</h3>
+          <p>Examen complet de la vue, bilan visuel, prescription de lunettes ou lentilles de contact adaptées.</p>
+          <span class="service-tag">Consultations</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Chirurgie de la cataracte</h3>
+          <p>Intervention microchirurgicale avec implant intraoculaire de haute qualité pour restaurer une vision nette.</p>
+          <span class="service-tag">Chirurgie</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <h3>Chirurgie réfractive</h3>
+          <p>Correction laser de la myopie, hypermétropie et astigmatisme pour se libérer des lunettes.</p>
+          <span class="service-tag">LASIK / PKR</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+          </div>
+          <h3>Glaucome</h3>
+          <p>Dépistage, suivi et traitement du glaucome grâce à des équipements de mesure de précision.</p>
+          <span class="service-tag">Diagnostic</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <h3>Rétine & Fond d'œil</h3>
+          <p>Examen du fond d'œil, traitement de la rétinopathie diabétique, DMLA et décollements de rétine.</p>
+          <span class="service-tag">Chirurgie</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <h3>Ophtalmologie pédiatrique</h3>
+          <p>Suivi de la vision des enfants, détection et traitement précoce des troubles visuels infantiles.</p>
+          <span class="service-tag">Enfants</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="galerie">
+  <div class="video-section">
+    <span class="section-tag">En action</span>
+    <h2 style="margin-bottom:32px">Le Dr. en salle<br>d'opération</h2>
+    <div class="video-wrap" id="videoWrap">
+      <video id="mainVideo" loop playsinline poster="">
+        <source src="" type="video/mp4">
+      </video>
+      <div class="video-overlay" id="videoOverlay">
+        <div class="play-btn" onclick="playVideo()">
+          <svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
+        </div>
+        <span class="video-caption">Cliquez pour voir une intervention</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="gallery">
+  <div class="gallery-grid">
+    <img src="" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22320%22><rect width=%22600%22 height=%22320%22 fill=%22%231a9a7a%22 rx=%2216%22/><text x=%22300%22 y=%22165%22 fill=%22white%22 font-family=%22serif%22 font-size=%2226%22 text-anchor=%22middle%22>Cabinet d%27accueil</text></svg>'" alt="Accueil">
+    <img src="" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22240%22><rect width=%22300%22 height=%22240%22 fill=%22%23e1f5ee%22 rx=%2216%22/><text x=%22150%22 y=%22125%22 fill=%22%231a9a7a%22 font-size=%2218%22 text-anchor=%22middle%22>Consultation</text></svg>'" alt="Consultation">
+    <img src="" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22240%22><rect width=%22300%22 height=%22240%22 fill=%22%23c4763a22%22 rx=%2216%22/><text x=%22150%22 y=%22125%22 fill=%22%23c4763a%22 font-size=%2218%22 text-anchor=%22middle%22>Équipements</text></svg>'" alt="Équipements">
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<section id="avis">
+  <div class="reviews">
+    <div class="reviews-inner">
+      <span class="section-tag">Témoignages</span>
+      <h2>Ce que disent<br>nos patients</h2>
+      <div class="carousel-track-wrap">
+        <div class="carousel-track" id="carouselTrack">
+          <!-- Reviews will be duplicated by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--cream)">
+  <div class="contact">
+    <div>
+      <span class="section-tag">Nous contacter</span>
+      <h2>Prenez rendez-vous</h2>
+      <div class="contact-card">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.5 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013.41 1.23h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 9a16 16 0 006.29 6.29l1.13-1.13a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Téléphone</div>
+            <div class="contact-value">
+              <a href="tel:0538830120">05 38 83 01 20</a><br>
+              <a href="tel:0537802322">05 37 80 23 22</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value"><a href="mailto:ophtalmologiecms@gmail.com">ophtalmologiecms@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Adresse</div>
+            <div class="contact-value">Imm Al Mountazah, Angle avenue Mediouna<br>et Rue Bengrir, Bureau N°9, 2ème étage<br>Bettana — Salé</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Horaires</div>
+            <div class="contact-value">Lundi – Samedi<br>9h00 – 18h00</div>
+          </div>
+        </div>
+      </div>
+      <a href="tel:0538830120" class="call-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.5 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013.41 1.23h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 9a16 16 0 006.29 6.29l1.13-1.13a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Appeler pour un rendez-vous
+      </a>
+    </div>
+    <div>
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.9!2d-6.8!3d34.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDAzJzAwLjAiTiA2wrA0OCcwMC4wIlc!5e0!3m2!1sfr!2sma!4v1234567890"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Localisation du cabinet">
+        </iframe>
+      </div>
+      <p style="font-size:13px;color:var(--gray);margin-top:16px;text-align:center">
+        📍 Bettana, Salé — <a href="https://www.google.com/maps/search/Cabinet+d'ophtalmologie+Dr+El+Bouaychi+Alae" target="_blank" rel="noopener" style="color:var(--teal)">Ouvrir dans Google Maps</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Cabinet d'Ophtalmologie · Dr. El Bouaychi Alae</div>
+    <div class="footer-copy">© 2025 · Tous droits réservés · Salé, Maroc</div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// Reviews data
+const reviews = [
+  {text:"Une expérience exceptionnelle. Le Dr. Bouaychi a pris le temps d'expliquer chaque étape, très professionnel et rassurant.",name:"Fatima Z.",date:"Il y a 2 semaines",init:"FZ"},
+  {text:"Opéré de la cataracte avec succès. Les équipements sont très modernes et l'équipe est au top. Je recommande vivement !",name:"Mohammed A.",date:"Il y a 1 mois",init:"MA"},
+  {text:"Cabinet très bien aménagé, accueil chaleureux. Le médecin est compétent et à l'écoute. Ma vision s'est nettement améliorée.",name:"Khadija B.",date:"Il y a 3 semaines",init:"KB"},
+  {text:"Très bonne consultation pour mon fils. Le Dr a su mettre l'enfant en confiance. Je suis très satisfaite du résultat.",name:"Salma R.",date:"Il y a 2 mois",init:"SR"},
+  {text:"Diagnostic précis, matériel de pointe. J'ai enfin trouvé un ophtalmo en qui j'ai confiance. Merci docteur !",name:"Youssef M.",date:"Il y a 1 semaine",init:"YM"},
+  {text:"Service impeccable de A à Z. Les secrétaires sont réactives et le docteur est très qualifié. Rendez-vous rapide.",name:"Nadia H.",date:"Il y a 3 semaines",init:"NH"},
+  {text:"Après des années avec des lunettes, j'ai eu une chirurgie réfractive réussie. Vision parfaite maintenant. Merci Dr. Alae !",name:"Karim T.",date:"Il y a 2 mois",init:"KT"},
+  {text:"Le meilleur ophtalmologue à Salé. Cabinet propre, moderne. Le Dr prend son temps pour bien expliquer. 5 étoiles méritées.",name:"Houda L.",date:"Il y a 1 mois",init:"HL"},
+];
+
+const track = document.getElementById('carouselTrack');
+const doubled = [...reviews, ...reviews];
+doubled.forEach(r => {
+  track.innerHTML += `
+    <div class="review-card">
+      <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="review-text">"${r.text}"</p>
+      <div class="review-author">
+        <div class="review-avatar">${r.init}</div>
+        <div>
+          <div class="review-name">${r.name}</div>
+          <div class="review-date">${r.date}</div>
+        </div>
+      </div>
+    </div>`;
+});
+
+// Video setup — replace src with actual video path when deploying
+function playVideo(){
+  const video = document.getElementById('mainVideo');
+  const overlay = document.getElementById('videoOverlay');
+  const wrap = document.getElementById('videoWrap');
+  video.play();
+  wrap.classList.add('playing');
+}
+document.getElementById('videoWrap').addEventListener('click', function(e){
+  if(this.classList.contains('playing')){
+    const video = document.getElementById('mainVideo');
+    if(video.paused){video.play();}else{video.pause();}
+  }
+});
+</script>
+</body>
+</html>
